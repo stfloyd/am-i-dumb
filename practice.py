@@ -23,6 +23,7 @@ def exact_change(item_cost, money_paid):
 
     change_due_format = '{:.2f}'.format(change_due / 100)
     message = f"Your total is {change_due_format}: "
+
     change = {
         'One Hundred Dollar Bill': 0,
         'Fifty Dollar Bill': 0,
@@ -47,7 +48,6 @@ def exact_change(item_cost, money_paid):
             total_change -= cash_vals[currency]
             
     print('change:', change)
-    print('total change:', total_change)
             
     change_reduce = []
     
@@ -81,17 +81,20 @@ def exact_change(item_cost, money_paid):
     return message
 
 # TEST THREE
+print("\n\nTEST THREE")
 print(exact_change(9.99, 20))
 # Intended output: "Your total is 10.01: 1 Ten Dollar Bill and 1 Penny."
 # Not giving penny because for some reason after subracting 10 from 10.001 it gives barely less than a penny...
 
 # TEST SIX
+print("\n\nTEST SIX")
 print(exact_change(17.53, 30))
 # Intended output: "Your total is 12.47: 1 Ten Dollar Bill, 1 Two Dollar Bill, 1 Quarter, 2 Dimes, and 2 Pennies." 
 # This one is also not giving pennies correctly, this time it looks like it's getting messed up in the initial change_due equation by less than a penny...
 
 
 # TEST TEN
+print("\n\nTEST TEN")
 print(exact_change(0, 999.99))
 # Intended output: "Your total is 999.99: 9 One Hundred Dollar Bills, 1 Fifty Dollar Bill, 2 Twenty Dollar Bills, 1 Five Dollar Bill, 2 Two Dollar Bills, 3 Quarters, 2 Dimes, and 4 Pennies."
 # This one is correct, I just wanted to show that this only effects tests with pennies, but there are some tests with pennies that do work correctly...
