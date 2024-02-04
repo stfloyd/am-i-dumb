@@ -1,23 +1,27 @@
 cash_vals = {
-    'One Hundred Dollar Bill': 100,
-    'Fifty Dollar Bill': 50,
-    'Twenty Dollar Bill': 20,
-    'Ten Dollar Bill': 10,
-    'Five Dollar Bill': 5,
-    'Two Dollar Bill': 2,
-    'One Dollar Bill': 1,
-    'Quarter': 0.25,
-    'Dime': 0.10,
-    'Nickel': 0.05,
-    'Penny': 0.01,
+    'One Hundred Dollar Bill': 10000,
+    'Fifty Dollar Bill': 5000,
+    'Twenty Dollar Bill': 2000,
+    'Ten Dollar Bill': 1000,
+    'Five Dollar Bill': 500,
+    'Two Dollar Bill': 200,
+    'One Dollar Bill': 100,
+    'Quarter': 25,
+    'Dime': 10,
+    'Nickel': 5,
+    'Penny': 1,
 }
 
+def dollars_to_pennies(dollars):
+    return int(dollars * 100)
+
 def exact_change(item_cost, money_paid):
-    change_due = money_paid - item_cost
+    change_due = dollars_to_pennies(money_paid) - dollars_to_pennies(item_cost)
     print('change due:', change_due)
+
     total_change = change_due
-    print('total change', total_change)
-    change_due_format = '{:.2f}'.format(change_due)
+
+    change_due_format = '{:.2f}'.format(change_due / 100)
     message = f"Your total is {change_due_format}: "
     change = {
         'One Hundred Dollar Bill': 0,
